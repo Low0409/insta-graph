@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/ress.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>インスタ</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div id="img">
+    <img src="./heading.JPG" alt="">
+  </div>
+  <div id="insta_list">
+    <div class="row"></div>
+  </div>
+  <div class="modal">
+    <div id="modal-flex">
+      <div class="bigimg">
+        <img src="" alt="" id="img-modal" class="modal-left">
+        <video controls src="" id="video-modal" class="modal-left"></video>
+      </div>
+      <div id="modal-right">
+        <a href="" id="a-modal-header">
+          <div id="div-flex-modal-header">
+            <img src="" onerror="if (this.src !== './icon.jpg') this.src = './icon.jpg'" alt="" id="icon">
+            <p id="name"></p>
+          </div>
+        </a>
+        <p id="caption"></p>
+        <p id="heart">💖</p>
+      </div>
+      <button id="prev" class="modal-button">←</button>
+      <button id="next" class="modal-button">→</button>
+      <button id="slide-back" class="modal-button2">←</button>
+      <button id="slide-next" class="modal-button2">→</button>
+    </div>
+    <p class="close-btn"><a href="">✖</a></p>
+  </div>
+  <a href="" target="_blank" id="instagram-btn"><i class="fa fa-instagram" style="font-size:40px"></i><span>Follow
+      Us</span>
+  </a>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYG❤SHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</body>
+<script>
+  //let url = [];//各投稿の1枚目のURL
+  let url_child = [];//各投稿の2枚目以降のURL(今は2枚目だけ)
+  let slide_count = 0;
+  let url_list = [[null, null, null, null, null, null, null, null], [null, null, null, null, null, null, null, null], [null, null, null, null, null, null, null, null], [null, null, null, null, null, null, null, null], [null, null, null, null, null, null, null, null], [null, null, null, null, null, null, null, null], [null, null, null, null, null, null, null, null], [null, null, null, null, null, null, null, null], [null, null, null, null, null, null, null, null], [null, null, null, null, null, null, null, null]];
+
+  let href = [];
+  let like = [];
+  let type = []; //1:img 2:video
+  const num_of_contents = 8;  // 表示する投稿数
+  (function ($) {
+    $.ajax({
+      type: 'GET',
+      url: //,
+      dataType: 'json',
+      success: function (json) {
+        let insta = json.media.data;
+        for (let i = 0; i < num_of_contents; i++) {
+
+          //1枚目のurlfetch・旧バージョン
+          //url.push(insta[i].media_url); // 動画ソースのURLを取得
+
+          //2枚目以降のurlfetch・新バージョン
+
+          url_list[0][i] = insta[i].media_url;
+          console.log(url_list);
+
+          //if(insta[i].media_type == "CAROUSEL_ALBUM"){
+          //  url_child.push(insta[i].children.data[1].media_url);
+          //}
+          for (let j = 1; j < insta[i].children.data.length; j++) {
+            url_list[j][i] = insta[i].children.data[j].media_url;
+          }
+          console.log(url_list);
+
+          //try {
+          //  url_child.push(insta[i].children.data[j].media_url);
+          //} catch (error) {
+          //  url_child.push("");
+          //}
+
+          //console.log(url_child)
+
+          href.push(insta[i].permalink); // リンク先URLを取得
+          let caption_full = insta[i].caption; //　投稿のキャプションを取得
+          like.push(insta[i].like_count); //　いいね！数の取得
+          document.getElementById("name").innerHTML = insta[i].username; //　ユーザー名の取得
+          let m_type = insta[i].media_type; //　動画か画像かの判別
+          let timestamp = insta[i].timestamp.substr(0, insta[i].timestamp.indexOf('T')).replaceAll('-', '.') + '<br>';//　投稿日時の取得
+          let hashtags = caption_full.match(/[#＃][Ａ-Ｚａ-ｚA-Za-z一-鿆0-9０-９ぁ-ヶｦ-ﾟー._-]+/gm);          // ハッシュタグ抽出
+          let caption_nohash = caption_full.replace(/[#＃][Ａ-Ｚａ-ｚA-Za-z一-鿆0-9０-９ぁ-ヶｦ-ﾟー._-]+/gm, ""); // ハッシュタグ以外
+          document.getElementById("instagram-btn").href = "https://www.instagram.com/" + insta[i].username; //　ユーザーページへのリンク
+          //CAROUSEL_ALBUMの場合
+          if (m_type == "CAROUSEL_ALBUM") {
+            //$('.bigimg').append(`<img src="" alt="" id="image-list">`)
+            //image-listに追加
+            //$('#image-list').attr('src', insta[i].children[0].media_url);
+            //if(insta[i].children.data[1].media_url){
+            // url.push(insta[i].children.data[1].media_url);
+            //}
+            //if(insta[i].children.data[2].media_url){
+            //  url.push(insta[i].children.data[2].media_url);
+            // }
+
+            //console.log(`${i}番目はCAROUSEL_ALBUMで画像枚数は${insta[i].children.data.length}枚で2枚目のURLは${insta[i].children.data[1].media_url}`);
+          }
+          //console.log(url);
+          if (url_list[0][i].indexOf('.mp4') <= 0) {
+
+            type.push(1);
+            $('.row').append(`                   
+          <div class="col">
+            <section class="hover">
+              <div class="hover-img">
+                <a href="#" onclick="modal(${i})">
+                  <img src="${url_list[0][i]}">
+                  </div>
+                  <div class="hover-text">
+                    <div id="text">
+                      <p>${timestamp}<br>${caption_nohash.replaceAll('\n', '<br>').replaceAll('<br>  <br>', '').replaceAll('<br> <br>', '').replaceAll('<br><br><br>', '') + "<br><br>"}<span class="blue">${hashtags}</span></p>
+                    </div>
+                  <p id="text2">${timestamp}${caption_full.substr(0, 70)}</p>
+                </a>
+                  </div>
+            </section>
+          </div>
+                `);
+          } else {
+            type.push(2);
+            $('.row').append(`                   
+          <div class="col">
+            <section class="hover">
+              <div class="hover-img">
+                <a href="#" onclick="modal(${i})">
+                <video controls src="${url_list[0][i]}"></video>
+                  </div>
+                  <div class="hover-text">
+                    <div id="text">
+                      <p>${timestamp}<br>${caption_nohash.replaceAll('\n', '<br>').replaceAll('<br>  <br>', '').replaceAll('<br> <br>', '').replaceAll('<br><br><br>', '') + "<br><br>"}<span class="blue">${hashtags}</span></p>
+                    </div>
+                  <p id="text2">${timestamp}${caption_full.substr(0, 70)}</p>
+                </a>
+                  </div>
+            </section>
+          </div>
+                `);
+          }
+        }
+      }
+    });
+  })(jQuery);
+
+  const modal = (n) => {
+    const caption = Array.from(document.querySelectorAll("#text"));
+    document.getElementById("a-modal-header").href = href[n];
+    document.getElementById("icon").src = icon;
+    document.getElementById("heart").innerHTML = "💖" + like[n];
+    document.getElementById("caption").innerHTML = caption[n].innerHTML;
+
+    if (type[n] == 1) { //画像の場合
+      document.getElementById("video-modal").style.display = "none";
+      document.getElementById("img-modal").style.display = "block";
+    } else {            //動画の場合
+      document.getElementById("video-modal").style.display = "block";
+      document.getElementById("img-modal").style.display = "none";
+    }
+    //次・前の投稿へ
+    document.getElementById('prev').onclick = () => {
+      (n == 0) ? modal(num_of_contents - 1) : modal(n - 1);
+      slide_count = 0;
+    }
+    document.getElementById('next').onclick = () => {
+      (n == num_of_contents - 1) ? modal(0) : modal(n + 1);
+      slide_count = 0;
+    }
+    //次・前のスライドへ
+    document.getElementById("slide-next").onclick = () => {
+      slide_count++;
+      nextSlide(n);
+    }
+    document.getElementById("slide-back").onclick = () => {
+      if (slide_count !== 0) {
+        slide_count--;
+      }
+      nextSlide(n);
+    }
+    //次または前の投稿の画像を表示
+    $('.bigimg').children().attr('src', url_list[0][n]);
+    $('.modal').fadeIn();
+    $('body,html').css('overflow-y', 'hidden');
+    return false;
+  }
+
+  const nextSlide = (n_content) => {
+    if(url_list[slide_count][n_content] == undefined){
+      slide_count = 0;
+    }
+    //alert(slide_count);
+    $('.bigimg').children().attr('src', url_list[slide_count][n_content]);
+  }
+
+</script>
+
+</html>
+
+<!-- 
+      url: 'https://graph.facebook.com/v13.0/17841413699653862?access_token=EAAOJNKd4ARcBAJVR4oMLdm6cZBSrbv1wUBdM1FMbpUlVaIsYZB5BLf40x1jvJtyX2YpjvEZAVDtrxxZCOulhxZAaZAuSpZA6tAGCOnMZCpAe7B2bZCLUhZCxlkLzJRGZCv7qxPAinhnljvaotbDrK9mfSbigvtT5IqvQ1AERPV7DZCynBYKmiZAEG34TJLXNnWCVOrVMZD&pretty=1&limit=25&after=NDQwMTE4NDgwMDczODE0&fields=name,media{caption,like_count,media_url,permalink,timestamp,username,children{media_url}}',
+ -->
+
+0: (8) ['https://scontent-nrt1-1.cdninstagram.com/v/t51.293…0EHdnalIPyhG8zL5ZDaUlS-tD6iG7fzs2RQgw&oe=628BE148',
+'https://scontent-nrt1-1.cdninstagram.com/v/t51.293…bKUtwxcDE6B0vN7iPwMtde2J2pirvIZFBsuRA&oe=628BBDE6',
+'https://scontent-nrt1-1.cdninstagram.com/v/t51.293…zXAZYPMzQsqdWXoEJkdbp7MI7Zx0wskh_mQ1Q&oe=628CC111',
+'https://scontent-nrt1-1.cdninstagram.com/v/t51.293…hTtU-07oAhf7dPCe1LEveDU5enPZ-nm2g_oug&oe=628B5279',
+'https://scontent-nrt1-1.cdninstagram.com/v/t51.293…YfDBxUSE0ESOVqMBVv-1QyZplx6QIzZfjZMxw&oe=628B4FE7',
+'https://scontent-nrt1-1.cdninstagram.com/v/t51.293…2AasbLd-9gngpj93movnIbW6bQoXByl9s0aQA&oe=628CADC4',
+'https://scontent-nrt1-1.cdninstagram.com/v/t51.293…NlMgUftPGE4qs8ldRPIlj9_LO31WtnSrP1vAQ&oe=628C6174',
+'https://scontent-nrt1-1.cdninstagram.com/v/t51.293…-NnEZRTrm1_Sw4OcrFrlTURk1Q_0Xn-cHevQw&oe=628BA7B5']
+1: (8) ['https://scontent-nrt1-1.cdninstagram.com/v/t51.293…a_CTHsDh2pXhZyEAT9uLrOzSlz5umv90Fzq_g&oe=628AF237',
+'https://scontent-nrt1-1.cdninstagram.com/v/t51.293…WyUFABFUDgbSYCEQQTKc7g8sk_GmQpCs4og_A&oe=628C4FD7',
+'https://scontent-nrt1-1.cdninstagram.com/v/t51.293…GJKXTdVPvvQfTH4P9M39HJ7KMwGbx6-iSCKyQ&oe=628BEA11',
+'https://scontent-nrt1-1.cdninstagram.com/v/t51.293…wQhNQbLo9z7gQhimb97ndZyaPVCvrm5hIxecQ&oe=628B9689',
+'https://scontent-nrt1-1.cdninstagram.com/v/t51.293…sPkmb5xdZYcSxwkKq87dy1adPQCvLn6QT1AAA&oe=628B3EC3',
+'https://scontent-nrt1-1.cdninstagram.com/v/t51.293…p3rYQ4UY0K2VqMD_sSqZ4AGC__9S7AQAkGS3g&oe=628C8548',
+'https://scontent-nrt1-1.cdninstagram.com/v/t51.293…NkUYjqnSUmr0ZP2dVc9Cp4WSNOLRJ3unmu6aA&oe=628AF52F', null]
+2: (8) [null, null, null, null,
+'https://scontent-nrt1-1.cdninstagram.com/v/t51.293…AWiRmV8tbGROqEGbyDYlVVUFiomwN7UPkYZig&oe=628CC992', null, null,
+null]
+3: (8) [null, null, null, null, null, null, null, null]
+4: (8) [null, null, null, null, null, null, null, null]
+5: (8) [null, null, null, null, null, null, null, null]
+6: (8) [null, null, null, null, null, null, null, null]
+7: (8) [null, null, null, null, null, null, null, null]
+8: (8) [null, null, null, null, null, null, null, null]
+9: (8) [null, null, null, null, null, null, null, null]

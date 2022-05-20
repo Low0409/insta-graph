@@ -1,0 +1,287 @@
+#a-modal-header {
+    text-decoration: none;
+}
+.modal-button2{
+    font-size: 50px;
+    color: yellow;
+}
+.modal-button{
+    position: absolute;
+    top: 50%;
+    color: rgb(255, 255, 255);
+    margin-right: 5vw;
+    background-color: rgb(133 133 133);
+    border-radius: 50%;
+    width: 100px;
+    height:100px;
+    font-size: 62px;
+    font-weight:900;
+}
+.modal-button:hover{
+    color: rgb(131, 226, 255);
+    background-color: rgb(0, 0, 0);
+}
+#prev{
+    left: 2%;
+}
+#next{
+    left: 92%;
+}
+#instagram-btn {
+    text-decoration: none;
+    height: 58px;
+    width: 250px;
+    background: -webkit-linear-gradient(135deg, #427eff 20%, #f13f79 85%) no-repeat;
+    background: linear-gradient(135deg, #427eff 20%, #f13f79 85%) no-repeat;
+    overflow: hidden;
+    display: block;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    line-height: 50px;
+    margin: 0 auto 90px auto;
+}
+.fa-instagram{
+    font-size: 30px;
+    margin: 5px 10px 0px 0px;
+}
+
+#a-modal-header:hover {
+    color: #4e4e4e;
+}
+
+#div-flex-modal-header {
+    display: flex;
+    margin: 0 auto;
+    border-bottom: 2px solid #dfdfdf;
+}
+
+#icon {
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    margin: 14px 10px 0px 10px;
+}
+
+.blue {
+    color: #3182ce;
+}
+#heart{
+    font-size: 20px;
+}
+#text2 {
+    font-size: 18px;
+    padding: 1.5vw;
+    color: white;
+}
+
+#text {
+    display: none;
+}
+
+#img {
+    margin-bottom: 20px;
+
+    text-align: center;
+}
+
+#insta_list {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+img,
+video {
+    width: 230px;
+}
+
+img,
+video:hover {
+    background-color: black;
+}
+
+.hover {
+    position: relative;
+    width: 229px;
+    height: 100%;
+}
+
+.hover .hover-img {
+    margin: 0;
+    padding: 0;
+}
+
+.hover-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.hover .hover-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+    /*透明にして表示させない*/
+    opacity: 0;
+    /*ホバーの動き方*/
+    transition: .3s ease-in-out;
+}
+
+.hover .hover-text .text1 {
+    font-size: 22px;
+    padding: 10px 20px;
+}
+
+.hover .hover-text .text2 {
+    font-size: 16px;
+    padding: 0 20px;
+}
+
+/*ホバーエフェクト*/
+.hover:hover .hover-text {
+    /*不透明にして表示*/
+    opacity: 1;
+}
+
+.modal {
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+}
+
+#heart {
+    color: red;
+}
+
+.modal-left {
+    width: 43vw;
+}
+
+#caption {
+    font-size: 16px;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+}
+
+#modal-flex {
+    display: flex;
+    margin: 2vw auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+#modal-right {
+    background-color: white;
+}
+
+.bigimg {}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 30px;
+    font-size: 60px;
+    background-color: rgb(255, 123, 123);
+    padding: 10px;
+}
+.close-btn:hover{
+    background-color: red;
+}
+.close-btn a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+#name {
+    font-size: 25px;
+    font-weight: 900;
+    color: rgb(189, 189, 189);
+    text-align: center;
+    margin: 10px 0px;
+}
+
+#name:hover {
+    color: #5f5f5f;
+}
+
+/*PC*/
+@media screen and (max-width: 1200px) {
+    #modal-flex {
+        width: 95%;
+    }
+
+    .modal-left {
+        width: 40vw;
+    }
+    .modal-button{
+        font-size: 45px;
+        width: 70px;
+        height:70px;
+    }
+}
+
+ @media screen and (max-width: 1000px) {
+.close-btn {
+    position: absolute;
+    font-size: 30px;
+    margin-right: 0px;
+}
+} 
+/*タブレット*/
+@media screen and (max-width: 768px) {
+    #modal-flex {
+        flex-direction: column;
+        width: 100%;
+        margin: 0px;
+    }
+
+    #modal-right {
+        width: 100%;
+    }
+    #prev{
+        left: 0%;
+    }
+    .modal-left {
+        width: 100%;
+    }
+    .modal-button{
+        font-size: 35px;
+        width: 55px;
+        height: 55px;
+    }
+}
+@media screen and (max-width: 721px) {
+    .modal-button{
+        position: fixed;
+        top: 70%;
+        opacity: 0.5;
+    }
+    #next{
+        left: 88%;
+    }
+}
+@media screen and (max-width: 550px) {
+    #next{
+        left: 85%;
+    }
+}
+/*スマホ*/
+@media screen and (max-width: 480px) {
+    #next{
+        left: 82%;
+    }
+    #name {
+        font-size: 20px;
+    }
+
+    #icon {
+        margin: 10px 10px 0px 10px;
+    }
+}

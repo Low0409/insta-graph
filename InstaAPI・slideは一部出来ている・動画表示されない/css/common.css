@@ -1,0 +1,1480 @@
+@charset "utf-8";
+
+/****************************************
+
+          General Setting
+
+*****************************************/
+
+html, body {
+	height:100%;
+}
+
+
+/***  Typography
+*****************************************/
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	color: #333;
+	font-family: 'Lato', 'Noto Sans JP', sans-serif;
+  line-height:1.6;
+	text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+
+}
+
+body {
+  font-size: 1.3em;
+}
+
+
+/* 768px以上991px以下（タブレット用） */
+@media (min-width: 768px) and (max-width: 991px) {
+	body {
+		font-size: 1.4em;
+  }
+}
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+	body {
+		font-size: 1.5em;
+  }
+}
+
+
+
+/***  List
+*****************************************/
+
+ul,ol {
+	list-style: none;
+}
+
+dd {
+	margin-left: 0;
+}
+
+
+/***  Link
+*****************************************/
+
+a {
+	color:#333;
+	text-decoration:none;
+}
+
+a:hover, a:active {
+	color:#333;
+}
+
+
+/***  Img
+*****************************************/
+
+figure, img {
+	vertical-align:bottom;
+}
+
+/* 991px以下（スマホ・タブレット共通） */
+@media (max-width: 991px) {
+	img {
+		width:100%;
+	}
+}
+
+
+/***  Box
+*****************************************/
+
+*, *:before, *:after {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+
+
+
+
+
+
+/****************************************
+
+          Additional
+
+*****************************************/
+
+
+
+/*** clear
+*****************************************/
+
+.clearfix:after{
+	display:block;
+	clear:both;
+	height:0;
+	visibility:hidden;
+	content:"";
+}
+
+/***  表示・非表示
+*****************************************/
+
+
+/* 991px以下（スマホ・タブレット共通）*/
+@media (max-width: 991px) {
+	.pc {
+		display:none!important;		
+	}
+}
+
+/* 768px以上（タブレット・PC共通）*/
+@media (min-width: 768px) {
+	.sp {	
+		display:none!important;
+	}
+}
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+	.tb,
+	.sp-tb {	
+		display:none!important;
+	}
+}
+
+/* 767px以下（スマホ用） */
+@media (max-width: 767px) {
+	.tb,
+	.tb-pc {	
+		display:none!important;
+	}
+}
+
+
+/***  Box
+*****************************************/
+
+/* 991px以下（スマホ用） */
+@media (max-width: 991px) {
+	.inner {
+		width: 100%;
+	}
+}
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+	.inner {
+		width: 1020px;
+		min-width: 1020px;
+		margin: 0 auto;
+	}
+}
+
+.inner-full {
+	width: 100%;
+}
+
+
+/***  Text
+*****************************************/
+
+.txt_ib {
+	display: inline-block;
+}
+
+/* 767px以下（スマホ用） */
+@media (max-width: 767px) {
+	.ws_pl_sp {
+    white-space: pre-line;
+  }
+}
+
+/* 991px以下（スマホ・タブレット共通） */
+@media (max-width: 991px) {
+	.ws_pl_st {
+    white-space: pre-line;
+  }
+}
+
+/* 768px以上991px以下（タブレット用） */
+@media (min-width: 768px) and (max-width: 991px) {
+	.ws_pl_tb {
+		white-space: pre-line;
+	}
+}
+
+/* 768px以上（タブレット・PC共通） */
+@media (min-width: 768px) {
+	.ws_pl_tp {
+		white-space: pre-line;
+	}
+}
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+	.ws_pl_pc {
+		white-space: pre-line;
+	}
+}
+
+.f-logo-en {
+	font-family: 'Racing Sans One', cursive;
+	font-style: oblique;
+	font-weight: bold;
+}
+
+.f-logo-num {
+	font-family: 'Squada One', cursive;
+	font-style: oblique;
+	font-weight: bold;
+}
+
+
+
+/****************************************
+
+          Header
+
+*****************************************/
+
+header {
+	background: #FFF;
+	box-shadow: 1px 0 5px -2px rgba(000, 000, 000, 0.3);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width:100%;
+	z-index: 80;
+}
+
+/* 767px以下（スマホ用）*/
+@media (max-width: 767px) {
+	header {
+		height: 60px;
+		padding: 5px;
+	}
+}
+
+/* 768x以上991px以下（タブレット用）*/
+@media (min-width: 768px) and (max-width: 991px){
+	header {
+		height: 80px;
+		padding: 10px;
+	}
+}
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+	header {
+		/*height: 100px;*/
+		padding-top: 30px;
+		/*position: absolute;
+		top:0;
+		left: 0;*/
+	}
+}
+
+/* 767px以下（スマホ用）*/
+@media (max-width: 767px) {
+	#header-logo {
+	}
+}
+
+/* 768x以上991px以下（タブレット用）*/
+@media (min-width: 768px) and (max-width: 991px) {
+	#header-logo {
+	}
+}
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+	#header-logo {
+		width: auto;
+		padding-top: 20px;
+		padding-left: 10px;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+#header-logo a {
+	display: block;
+}
+
+/* 991px以下（スマホ・タブレット共通） */
+@media (max-width: 991px) {	
+	#header-logo img {
+		height: 40px;
+		width: auto;
+	}
+}
+
+
+/*** ハンバーガーボタン
+*****************************************/
+
+/* 991px以下（スマホ・タブレット共通） */
+@media (max-width: 991px) {
+	.menu-trigger {
+		cursor: pointer;
+		display: inline-block;
+		height: 28px;
+		width: 30px;
+		vertical-align: middle;
+		/*position: absolute;
+		top: 20px;
+		right: 40px;*/
+		z-index: 110;
+		transform: translateX(0);
+		transition: transform .5s;
+	}
+		
+	.menu-trigger span {
+		background: #333;
+		box-sizing: border-box;
+		display:  inline-block;
+		height: 4px;
+		width: 100%;
+		position:absolute;
+		left: 0;
+	}
+	
+	.menu-trigger span:nth-child(1) {
+		top:0;
+	}
+	
+	.menu-trigger span:nth-child(2) {
+		top:12px;
+	}
+	
+	.menu-trigger span:nth-child(3) {
+		bottom:0;
+	}
+	
+	
+/*ハンバーガーボタン OPEN時の動き*/
+	.menu-trigger.active {
+  transform: translateX(-70vw);
+	}
+	
+	.menu-trigger.active span:nth-child(1) {
+		top: 50%;
+		-webkit-transform: rotate(135deg);
+		-moz-transform: rotate(135deg);
+		transform: rotate(135deg);
+	}
+	
+	.menu-trigger.active span:nth-child(2) {
+		width: 0;
+		left: 50%;
+	}
+	
+	.menu-trigger.active span:nth-child(3) {
+		top: 50%;
+		-webkit-transform: rotate(-135deg);
+		-moz-transform: rotate(-135deg);
+		transform: rotate(-135deg);
+	}
+}
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+	.menu-trigger {
+		display: none;
+	}
+}
+
+
+/*** ドロワーナビゲーション
+*****************************************/
+
+/* 991px以下（スマホ・タブレット共通） */
+@media (max-width: 991px) {
+	.nav-wrap {
+		background-color: #FFF;
+		/*width: 250px;*/
+		width: 90vw;
+		height: 100%;
+		padding-top: 80px;
+		position: fixed;
+		top: 0;
+		right: 0;
+		z-index: 100;
+		-webkit-transform: translateX(vw);
+		transform: translateX(90vw);
+		-webkt-transition: all .5s;
+		transition: all .5s;
+	}
+}
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+	.nav-wrap {
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+		/*text-align: right;*/
+	}
+}
+
+/* 991px以下（スマホ・タブレット共通） */
+@media (max-width: 991px) {	
+	.nav-wrap li {
+		padding: 0 10px;
+		border-bottom: 1px solid #CCC;
+	}
+	
+	.nav-wrap li a {
+		padding: 10px 0;
+	}
+		
+	
+/*ナビゲーション OPEN時の動き*/
+	.nav-wrap.open {
+		-webkt-transform: translateX(0);
+		transform: translateX(0);
+	}
+	
+	.overlay {
+		content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 90;
+    opacity: 0;
+    transition: opacity .5s;
+	}
+	
+	.overlay.open {
+		width: 100%;
+    height: 100%;
+    opacity: 1;
+  }		
+}
+
+
+/*** ヘッダーナビゲーション
+*****************************************/
+
+/* 767px以下（スマホ用）*/
+@media (max-width: 767px) {
+	.gnav li {
+		line-height: 1.4;
+	}
+}
+
+/* 768px以上（タブレット・PC共通） */
+@media (min-width: 768px) {
+	.gnav li {
+			font-size: 1.6rem;
+	}
+}
+
+.mnav li span {
+  font-size: 1.2rem;
+  font-weight: normal;
+  padding:0 5px;
+}
+
+/* 991px以下（スマホ・タブレット用）*/
+@media (max-width: 991px) {
+	.mnav li a {
+		white-space: pre-line;
+		display: block;
+	}
+}
+
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+	.mnav li span {
+		display: block;
+		padding: 0;
+	}
+}
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {	
+	.snav ul {
+		display: flex;
+		justify-content: flex-end;
+		list-style: url("../images/common/sub-nav-arrow.png") inside;
+		margin: 5px 0;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	
+	.snav li {
+		font-size: 1.4rem;
+		line-height: 1.2;
+		text-align: left;
+		padding-right: 2em;
+	}
+	
+	.snav li a {
+		color: #336699;
+	}
+	
+	.snav li a:hover {
+		color: #ccc;
+	}
+	
+	.gnav {
+		display: flex;
+		justify-content: flex-end;
+		overflow: hidden;
+	}
+	
+	.mnav {
+		display: flex;
+		align-content: stretch;
+		justify-content: space-around;
+	}
+	
+	.mnav li {
+		border-right: 1px solid #CCC;
+		text-align: center;
+		align-self: center;
+	}
+	
+	.mnav li a {
+		font-weight: bold;
+		display: block;
+		padding: 0 10px;
+		position: relative;
+		transition: 0.5s;
+	}
+	
+	.mnav li a::after {
+		background-color: #FF0000;
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+		margin: 0 auto;
+    position: absolute;
+		left: 50%;
+		transition: 0.5s;
+		-moz-transform: translateX(-50%);
+		-webkit-transform: translateX(-50%);
+		transform: translateX(-50%);
+	}
+
+	.mnav li a:hover::after {
+			width: 50%;
+	}
+	
+	
+	
+	/*** Brand List
+*****************************************/
+	
+	.util-logo {
+		display: flex;
+	}
+	
+	.util-logo li img {
+		width: 100%;
+	}
+}
+
+	/* 767px以下（スマホ用）*/
+@media (max-width: 767px) {
+	.util-logo li {
+		padding: 10px;
+	}
+}
+
+.util-logo .hf24 {
+	background: #000042;
+}
+
+.util-logo .nex {
+	background: #0041C8;
+}
+
+/* 767px以下（スマホ用）*/
+@media (max-width: 767px) {
+	.util-logo li img {
+		width: 50%;
+	}
+	
+	.snav li a,
+	.sidebtn li a {
+		display: block;
+	}	
+}
+
+/* 768px以上991px以下（タブレット用）*/
+@media (min-width: 768px) and (max-width: 991px){
+	.util-logo li img {
+		width: 30%;
+	}
+} 
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+	.util-logo li {
+		padding: 10px;
+		align-self: center;
+	}
+}
+
+.util-logo li a:hover {
+	opacity: .5;
+}
+
+
+
+/*** Side Navi Button
+*****************************************/
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+	.sidebtn {
+		position: fixed;
+		top: 50%;
+		right: 0;
+		z-index: 100;
+	}
+
+	.sidebtn li {
+		border-radius: 10px 0 0 10px;
+		box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3);
+		display: flex;
+		align-items: center;
+		width: 240px;
+		height: 100px;
+		margin-right: -140px;
+		margin-bottom: 10px;
+	transition: all 300ms 0s ease;
+	}
+	
+	.sidebtn span {
+		display: inline-block;
+		margin-left: 1em;
+	}
+	
+	.sidebtn a {
+		font-size: 1.2em;
+		display: block;
+		line-height: 100px;
+		width: 100%;
+		padding: 1em 0 1em 1em;
+	}
+	
+	.sidebtn i {
+			vertical-align: middle;
+	}
+	
+	.gn-find i {
+		font-size: 2.4em;
+	}
+	
+	.gn-join i {
+		font-size: 1.8em;
+	}
+		
+	.sidebtn li:hover {
+		transform: translateX(-130px);
+	}
+	
+	.gn-find {
+		background: #0069CD;
+	}
+
+	.gn-join {
+		background: #FFC800;
+	}
+
+	.gn-find a {
+			color: #FFF;
+	}
+
+	.gn-find a:hover {
+		color: #ffff32;
+	}
+
+	.gn-join a:hover {
+		color: #0069CD;
+	}
+}
+
+
+
+/****************************************
+
+          Footer
+
+*****************************************/
+
+footer {
+	width: 100%;
+	text-align: center;
+}
+
+/* 768px以上991px以下（タブレット用） */
+@media (min-width: 768px) and (max-width: 991px) {
+	footer .inner {
+		padding: 1em;
+	}
+}
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+	footer .inner {
+		padding: 2em 0;
+	}
+}
+
+
+/*** Footer Navi
+*****************************************/
+
+#footer-top {
+	background: #464646;
+	font-size: 1.4rem;
+}
+
+/* 767px以下（スマホ用） */
+@media (max-width: 767px) {
+	#footer-top {
+		padding-bottom: 50px;
+	}
+}
+
+/* 767px以下（スマホ用） */
+@media (max-width: 767px) {	
+	.f-nav ul {
+		display: flex;
+		flex-wrap: wrap;
+		align-content: stretch;
+		justify-content: space-between;
+		padding-bottom: 10px;
+	}
+}
+
+/* 768px以上（タブレット・PC共通） */
+@media (min-width: 768px) {	
+	.f-nav ul {
+		padding: 5px 0;
+	}
+}
+
+/* 767px以下（スマホ用） */
+@media (max-width: 767px) {	
+	.f-nav li {
+		display: flex;
+		flex-basis: 50%;
+		justify-content: center;
+    align-items: center;
+	}
+		
+	.f-nav li:nth-child(odd) {
+		border-right: 1px solid #CCC;
+		border-bottom: 1px solid #CCC;
+	}
+	
+	.f-nav li:nth-child(even) {
+		border-bottom: 1px solid #CCC;
+	}
+}
+
+/* 768x以上（タブレット・PC用）*/
+@media (min-width: 768px) {
+	.f-nav li {
+    display: inline-block;
+		padding-bottom: 1em;
+  }
+} 
+
+
+/* 768px以上991px以下（タブレット用）*/
+@media (min-width: 768px) and (max-width: 991px){
+	.f-nav li {
+    padding-right: 2em;
+		white-space: nowrap;
+  }
+}
+
+/* 992px以上（PC用）*/
+@media (min-width: 992px) {
+  .f-nav li {
+    padding-right: 4em;
+  }
+}
+
+.f-nav li a {
+	color: #FFF;
+}
+
+/* 767px以下（スマホ用） */
+@media (max-width: 767px) {
+	.f-nav li a {
+		display: block;
+		text-align: center;
+		width: 100%;
+		height: 100%;
+		padding: 10px;
+	}
+
+}
+	
+.f-nav li a:hover {
+  color: #CCC;
+}
+
+
+/*** Footer Navi Button
+*****************************************/
+
+/* 991px以下（スマホ用）*/
+@media (max-width: 991px) {
+	.footer-btn {
+		width: 100%;
+		position: fixed;
+		z-index: 10;
+		bottom: 0;
+		left: 0;
+	}
+	
+	.footer-btn ul {
+		display: flex;
+		padding: 5px;
+		justify-content: space-between;
+	}
+	
+	.footer-btn li {
+		border-radius: 10px;
+		box-shadow: 0px 0px 3px 2px rgba(255, 255, 255, 0.5);
+		width: 48%;
+		text-align: center;
+	}
+	
+	.footer-btn li a {
+		display: block;
+		padding: 1em;
+		text-align: center;		
+	}
+	
+	.footer-btn li i {
+		padding-right: 5px;
+	}	
+	
+	.footer-btn .gn-find {
+		background: #FFC800;
+	}
+
+	.footer-btn .gn-join {
+		background: #0069CD;
+	}
+
+	.footer-btn .gn-join a {
+			color: #FFF;
+	}
+}
+
+
+/* 768x以上（タブレット・PC用）*/
+@media (min-width: 768px) {
+	.footer-btn {
+		display: none;
+	}
+} 
+
+
+
+
+/*** Banner
+*****************************************/
+
+#banner {
+	background: #CCC;
+}
+
+/* 767px以下（スマホ用） */
+@media (max-width: 767px) {
+	#banner {
+		padding: 1em;
+	}
+}
+
+#banner ul {
+	text-align: left;
+}
+
+/* 768px以上（タブレット・PC共通） */
+@media (min-width: 768px) {
+	#banner li {
+		display: inline;
+		padding-right: 10px;
+	}
+}
+
+/* 767px以下（スマホ用） */
+@media (max-width: 767px) {
+	#banner li {
+		padding-bottom: 10px;
+	}
+}
+
+/* 768px以上（タブレット・PC共通） */
+@media (min-width: 768px) {
+	#banner li img {
+		width: inherit;
+	}
+}
+
+
+
+/*** Footer Bottom
+*****************************************/
+
+#footer-bottom {
+	text-align: center;
+}
+
+/* 768x以上（タブレット・PC用）*/
+@media (min-width: 768px) {
+	#footer-bottom {
+		text-align: center;
+		padding: 10px 0;
+		position: relative;
+		}
+}
+
+
+/*** トップスクロールボタン
+*****************************************/
+
+#page-top {
+		position: fixed;
+	z-index: 999;
+}
+
+/* 767px以下（スマホ用）*/
+@media (max-width: 767px) {
+	#page-top {
+		background: #464646;
+		border-radius: 5px;
+		text-align: center;
+		bottom: 80px;
+		right: 5px;
+		opacity: .9;
+	}
+}
+
+/* 768x以上（タブレット・PC用）*/
+@media (min-width: 768px) {
+	#page-top {
+		bottom: 50px;
+		right: 10px;
+	}
+} 
+
+/* 767px以下（スマホ用）*/
+@media (max-width: 767px) {
+	#page-top a {
+		color: #FFF;
+		font-size: 1.4em;
+		display: block;
+		padding: 5px 10px;
+		}
+	}
+
+/* 768x以上（タブレット・PC用）*/
+@media (min-width: 768px) {
+#page-top a {
+	background:#EBEBEB;
+	border-radius:5px;
+	color:#000042;
+	font-size:2.4rem;
+	line-height: 50px;
+	text-align:center;
+	display:block;
+	width: 50px;
+	height: 50px;
+	margin: auto;
+}
+}
+
+/****************************************
+
+          Content
+
+*****************************************/
+
+
+main {
+	text-align: center;
+}
+
+section {
+	width: 100%;
+	text-align: inherit;
+}
+
+/* 767px以下（スマホ用） */
+@media (max-width: 767px) {
+   section .inner {
+		 padding: 10px 5px;
+ }
+}
+
+/* 768px以上991px以下（タブレット用） */
+@media (min-width: 768px) and (max-width: 991px){
+   section .inner {
+		 padding: 2em 10px;
+ }
+} 
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+	section .inner {
+		 padding: 3em 0;
+	}
+}
+
+
+
+/*** page Index
+*****************************************/
+
+#page-index {
+	background: url("../images/common/index_bg.jpg") no-repeat center;
+	background-size: cover;
+}
+
+/* 768px以上991px以下（タブレット用） */
+@media (min-width: 768px) and (max-width: 991px) {
+	#page-index {
+    height: 120px;
+	}
+}
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+	#page-index {
+    height: 160px;
+	}
+}
+
+#page-index h1 {
+	color: #FFF;
+	line-height: 1.2;
+	text-shadow: 1px 1px #000;
+	margin: 0 auto;
+}
+
+/* 767px以下（スマホ用） */
+@media (max-width: 767px) {
+	#page-index h1 {
+		text-align: center;
+		padding: 10px;
+	}
+}
+
+/* 768px以上991px以下（タブレット用） */
+@media (min-width: 768px) and (max-width: 991px) {
+	#page-index h1 {
+    height: 120px;
+    padding: .8em 0 0 10px;
+	}
+}
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+	#page-index h1 {
+    height: 160px;
+    padding: 1.5em 0 0;
+	}
+}
+
+#page-index h1 span {
+	display: block;
+}
+
+.pi_txt_en {
+
+}
+
+.pi_txt_jp {
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+
+h2 {
+	color: #000042;
+	margin-bottom: 1em;
+}
+
+/* 767px以下（スマホ用） */
+@media (max-width: 767px) {
+	h2 {
+  font-size: 2rem;
+	white-space: pre-line;
+	}
+	
+	h3 {
+		font-size: 1.6rem;
+	}
+}
+
+/* 768px以上991px以下（タブレット用） */
+@media (min-width: 768px) and (max-width: 991px) {
+  h2 {
+		font-size: 3.0rem;
+  }
+	
+	h3 {
+		font-size: 2.2rem;
+	}
+}
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+  h2 {
+		font-size: 4rem;
+		line-height: 1.5;
+  }
+	
+	h3 {
+		font-size: 2.6rem;
+	}
+}
+
+p {
+	text-align:left;
+}
+
+
+/*** Section Title
+*****************************************/
+
+
+.section_title {
+	border-bottom: 1px solid #CCC;
+	color: #000042;
+	padding: 0 0 5px;
+	position: relative;
+}
+
+/* 768px以上（タブレット・PC共通）*/
+@media (min-width: 768px) {
+.section_title::before {
+	content: "";
+	display: inline-block;
+	width: 150px;
+  height: 5px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-color: black;
+	position: absolute;
+  bottom: -5px;
+}
+}
+
+.section_title_sub {
+	text-align: center;
+}
+
+/* 768px以上991px以下（タブレット用） */
+@media (min-width: 768px) and (max-width: 991px) {
+	.section_title_sub {
+	}
+}
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+	.section_title_sub {
+		font-size: 1.8rem;
+	}
+}
+
+/* 767px以下（スマホ用） */
+@media (max-width: 767px) {
+	.section_lead {
+		font-size: 1.5rem;
+	  padding-bottom: .5em;
+	}
+}
+
+/* 768px以上991px以下（タブレット用） */
+@media (min-width: 768px) and (max-width: 991px) {
+	.section_lead {
+		font-size: 1.8rem;
+	  padding-bottom: .5em;
+	}
+}
+
+/* 992px以上（PC用） */
+@media (min-width: 992px) {
+	.section_lead {
+		font-size: 2rem;
+		padding-bottom: .5em;
+	}
+}
+
+
+/***　Flex Box
+*****************************************/
+
+.fl-box {
+	display:-webkit-box;
+  display:-ms-flexbox;
+	display: flex;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+	-webkit-box-align: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
+}
+
+
+/***　Table Box
+*****************************************/
+
+/* 768px以上（タブレット・PC共通） */
+@media (min-width: 768px) {
+.tb-box {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+	vertical-align: top;
+	}
+
+.tbc-box {
+	display: table-cell;
+	vertical-align: top;
+	}
+}
+
+
+
+/***　Img
+*****************************************/
+
+.img-box img {
+	width: 100%;	
+}
+
+
+
+/***　背景カラー
+*****************************************/
+
+.bg_blue {
+	background-color:#0041c8;
+}
+
+.bg_lightblue {
+	background-color: #E4F8FF;
+}
+
+
+
+/****************************************
+
+          PageLink
+
+*****************************************/
+
+/* 「詳しくはこちら」ボタン */
+
+a.more-btn {
+	background:#0041C8;
+	border: 2px solid #FFF;
+	border-radius: 30px;
+	color: #FFF;
+	text-align: center;
+	text-decoration: none;
+	line-height: 1.4;
+	display: inline-block;
+	padding: 1.5em;
+	transition: .3s;
+	position:relative;
+	z-index:2;
+	overflow:hidden;
+}
+
+/* 767px以下（スマホ用） */
+@media (max-width: 767px) {
+	a.more-btn {		
+    width: 80%;
+		margin: 1em auto;
+	}
+}
+
+/* 768px以上（タブレット・PC共通） */
+@media (min-width: 768px) {
+	a.more-btn {
+		border-radius: 50px;
+		font-size: 1.2em;
+		margin: 2em auto;
+		padding: 1.5em 2em;
+	}
+}
+
+a.more-btn::after {
+	display:block;
+	content:"";
+	position:absolute;
+	z-index:-1;
+	top:50%;
+	left:50%;
+	width:360px;
+	height:360px;
+	margin:-180px 0 0 -180px;
+	border-radius:50%;
+	transition:.5s;
+}
+
+a.more-btn::after {
+	border:65px solid rgba(0,0,66,0);
+}
+
+a.more-btn:hover {
+	border-color: #0041C8;
+	color:#0041C8;
+}
+
+a.more-btn:hover::after {
+	border-width: 0;
+	border-color:#0041C8;
+	background:#fff;
+}
+
+
+/* 詳しく見るボタン */
+
+a.more-btn02 {
+	border: 1px solid #FFF;
+	color: #FFF;
+	font-size: 1.4rem;
+	padding: 5px 15px;
+	position: relative;
+  transition: .3s;
+}
+
+a.more-btn02::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  content: '';
+  background: #FFF;
+  transform-origin: right top;
+  transform: scale(0, 1);
+  transition: transform .3s;
+}
+
+a.more-btn02:hover::after {
+  transform-origin: left top;
+  transform: scale(1, 1);
+}
+
+#inquiry {
+  background-image: linear-gradient( to bottom, rgba(255, 255, 255, .7),  rgba(255, 255, 255, 1) ),
+                    url("../images/common/inquiry_bg.jpg");
+  background-repeat: repeat, no-repeat;
+  background-position: center, center;
+  background-size: cover;
+}
+
+
+
+#alertie {
+	/*height: 20%;*/
+	width: 100%;
+	/*padding-top: 20%;*/
+	padding: 10px 0;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  color: #333;
+  background-color:rgba(255, 255, 255, .8);
+	text-align: center;
+  /*opacity:0;*/
+  transition: all 0.8s ease-in-out;
+/*  transform: translate3d(0,100%,0);*/
+  z-index:9999;
+	display: none;
+}
+ 
+#alertie.visible {
+    will-change: transform;
+    /*transform: translate3d(0,0%,0);*/
+    /*opacity:1;*/
+	display: block;
+}
+ 
+#alertie h2 {
+	font-size: 1.2em;
+	margin-bottom: 0;
+}
+ 
+#alertie p {
+	font-size: 1em;
+	text-align: center;
+}
+
+#alertie strong {
+	font-size: 1.1em;
+}
+ 
+#alertie a {
+    color: #BF3335;
+}
+
+#closeie {
+	width: 30px;
+	height: 30px;
+	transform: scale(1) rotate(45deg);
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+	position: absolute;
+	right: 1em;
+	top: 10%;
+}
+
+#closeie:hover {
+	will-change: transform;
+	transform: scale(0.8) rotate(45deg);	
+}
+
+#closeie::before,
+#closeie::after {
+	content: "";
+	background: #666;
+	display: block;
+	position: absolute;
+	
+}
+
+#closeie::before {
+	width: 2px;
+	height: 30px;
+	top: 0;
+	left: 15px;
+}
+
+#closeie::after {
+	width: 30px;
+	height: 2px;
+	top: 15px;
+	left: 0;
+}
